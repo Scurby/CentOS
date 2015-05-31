@@ -18,9 +18,12 @@ Execute the following commands in the terminal:
 	service mysqld start
 
 ***1.2 Installing the Berkeley Database
-Download Berkeley Database here: http://download.oracle.com/berkeley-db/db-5.0.32.NC.tar.gz
+Download Berkeley Database here: 
+
+http://download.oracle.com/berkeley-db/db-5.0.32.NC.tar.gz
 
 Extract db-5.0.32.NC.tar.gz.
+
 Execute the following commands in the terminal:
 	
 	cd /path/to/db-5.0.32.NC/build_unix
@@ -29,6 +32,7 @@ Execute the following commands in the terminal:
 	make install
 
 *1.3 Creating the necessary symbolic links
+
 Execute the following commands in the terminal:
 	
 	ln -s /usr/local/BerkeleyDB.5.0/lib/libdb-5.0.so /usr/lib64/libdb-5.0.so
@@ -36,10 +40,13 @@ Execute the following commands in the terminal:
 	ln -s /usr/lib64/mysql/libmysqlclient.so.16 /usr/lib64/libmysqlclient.so.16
 
 *1.4 Downloading and installing Eclipse
+
 Download Eclipse IDE for C/C++ Developers here: 
+
 https://www.eclipse.org/downloads and install.
 
 *1.5 Uploading your TRE files
+
 Core3 needs the Star Wars Galaxies client TRE files to operate. Upload them to your server environment in a directory of your choosing.
 
 # Section 2. Obtaining the code and compiling in Eclipse
@@ -47,40 +54,44 @@ Core3 needs the Star Wars Galaxies client TRE files to operate. Upload them to y
 *2.1 Obtaining the code
 
 Obtaining Core3 Source Code:
-
-In eclipse, click on file and select Import...
-Expand Git and select Projects from Git. Click next.
-Select Clone URI and click next.
-In the URI box, enter: "http://gerrit.swgemu.com/Core3". Click Next.
-Select the unstable branch. Click next.
-In the Directory box, enter: /home/swgemu/Git/Core3. Click Next.
-The Core3 Source code will checkout. Once that is done, click next and then finish.
+	
+	In eclipse, click on file and select Import...
+	Expand Git and select Projects from Git. Click next.
+	Select Clone URI and click next.
+	In the URI box, enter: "http://gerrit.swgemu.com/Core3". Click Next.
+	Select the unstable branch. Click next.
+	In the Directory box, enter: /home/swgemu/Git/Core3. Click Next.
+	The Core3 Source code will checkout. Once that is done, click next and then finish.
 
 Obtaining the Public Engine Source Code:
-
-In eclipse, click on file and select Import...
-Expand Git and select Projects from Git. Click next.
-Select Clone URI and click next.
-In the URI box, enter: "http://gerrit.swgemu.com/p/PublicEngine.git". Click Next.
-Select the Master branch. Click next.
-In the Directory box, enter: /home/swgemu/Git/PublicEngine. Click Next.
-The Public Engine Source code will checkout. Once that is done, click next and then finish.
+	
+	In eclipse, click on file and select Import...
+	Expand Git and select Projects from Git. Click next.
+	Select Clone URI and click next.
+	In the URI box, enter: "http://gerrit.swgemu.com/p/PublicEngine.git". Click Next.
+	Select the Master branch. Click next.
+	In the Directory box, enter: /home/swgemu/Git/PublicEngine. Click Next.
+	The Public Engine Source code will checkout. Once that is done, click next and then finish.
 
 *2.2 Preparing to compile
 
 Preparing the Public Engine for compile:
-In Eclipse under Project Explorer, expand MMOEngine and then expand lib.
-Inside the lib directory, create a new directory called unix.
-Copy libengine3.a in the linux64 directory to the unix directory you just created.
+	
+	In Eclipse under Project Explorer, expand MMOEngine and then expand lib.
+	Inside the lib directory, create a new directory called unix.
+	Copy libengine3.a in the linux64 directory to the unix directory you just created.
 
 Setting the CLASSPATH:
-In Eclipse under Project Explorer, right click on MMOCoreORB and click properties at the bottom.
-On the side menu, select C++ Make Project.
-Select the Environment tab and click new to add a new environment variable.
-In the Name box, enter CLASSPATH. In the Value box, enter /home/swgemu/Git/PublicEngine/MMOEngine/bin/idlc.jar. Click Ok, then click Ok again to close the properties window completely.
+	
+	In Eclipse under Project Explorer, right click on MMOCoreORB and click properties at the bottom.
+	On the side menu, select C++ Make Project.
+	Select the Environment tab and click new to add a new environment variable.
+	In the Name box, enter CLASSPATH. In the Value box, enter /home/swgemu/Git/PublicEngine/MMOEngine/bin/idlc.jar. Click Ok, then click Ok again to close the properties window completely.
 
 Editing configure.ac for CentOS paths
+
 In Eclipse under Project Explorer, expand MMOCoreORB and open configure.ac
+
 Inside configure.ac at line 59 to 62, replace:
 	
 	SYSTEM_INCLUDES="" 
@@ -103,16 +114,18 @@ Execute the following commands:
 	chmod 755 /home/swgemu/Git/PublicEngine/MMOEngine/bin/idlc
 
 *2.3 Compiling the Core3 server
-In Eclipse under Project Explorer, right click on MMOCoreORB. Mouse over Make Targets and select Build.
-Select configure and then click Build. Run this step twice.
-After you have run configure twice, hover over Make Targets again and select Build.
-Select All and then click build.
+	
+	In Eclipse under Project Explorer, right click on MMOCoreORB. Mouse over Make Targets and select Build.
+	Select configure and then click Build. Run this step twice.
+	After you have run configure twice, hover over Make Targets again and select Build.
+	Select All and then click build.
 
 At this point Core3 should be fully built. 
 
 # Section 3. Setting up MYSQL, configuring Core3, and running the server
 
 *3.1 MYSQL database setup
+
 Execute the following commands in the terminal:
 	
 	mysql -u root -p
@@ -126,10 +139,12 @@ Execute the following commands in the terminal:
 	UPDATE galaxy SET galaxy_id='YOUR GALAXY ID', name='YOUR SERVER NAME', address='YOUR IP' WHERE galaxy_id=2;
 
 *3.2 Configure Core3
-Open /home/swgemu/Git/MMOCoreORB/bin/config/config.lua.
-Inside config.lua, edit the config values to match your settings. (Database Information, TRE file location, and other desired server settings.)
+
+	Open /home/swgemu/Git/MMOCoreORB/bin/config/config.lua.
+	Inside config.lua, edit the config values to match your settings. (Database Information, TRE file location, and other desired server settings.)
 
 *3.3 Running the Core3 Server
+
 Execute the following commands in the terminal:
 	
 	cd /home/swgemu/Git/MMOCoreORB/bin

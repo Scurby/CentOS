@@ -9,7 +9,7 @@ Note: For this guide, we will be using /home/swgemu/Git/ as our code directory. 
 
 #Section 1. Installing the Dependencies needed for Core3 to compile & run
 
-*1.1 Dependencies installed with YUM
+***1.1 Dependencies installed with YUM
 Execute the following commands in the terminal:
 	
 	yum install gcc-c++.x86_64 make.x86_64 gdb.x86_64 automake.noarch subversion.x86_64 git.x86_64 lua lua-devel.x86_64 mysql-server mysql-devel.x86_64 java-1.8.0-openjdk.x86_64
@@ -17,8 +17,9 @@ Execute the following commands in the terminal:
 	/sbin/chkconfig mysqld on
 	service mysqld start
 
-*1.2 Installing the Berkeley Database
+***1.2 Installing the Berkeley Database
 Download Berkeley Database here: http://download.oracle.com/berkeley-db/db-5.0.32.NC.tar.gz
+
 Extract db-5.0.32.NC.tar.gz.
 Execute the following commands in the terminal:
 	
